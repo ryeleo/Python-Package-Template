@@ -1,6 +1,6 @@
 # Overview
 
-Python projects must have some structure if we want to approach the following issues consistently:
+Python projects must have some standard structure if we want to standardize around the following:
 
 * Dependency Management.
 * Technical Documentation Management (via MkDocs).
