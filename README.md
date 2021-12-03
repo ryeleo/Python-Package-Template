@@ -1,5 +1,3 @@
-# Overview
-
 Python projects must have some standard structure if we want to standardize around the following:
 
 * Dependency Management.
@@ -58,7 +56,7 @@ The project structure can be conceptually split into three chunks:
         └── tests
             └── test_hello_world.py
 
-## Getting Started
+# Getting Started
 
 > If you have not used this project structure, I recommend getting the `examplepkg` up and running.
 > Read through [`docs/development.md`](docs/development.md) to get `examplepkg` installed -- including the `hello` command-line tool!
@@ -74,14 +72,14 @@ To get started using this project sturcture for your own project, here are the i
 
 
 
-## Dependency Managment
+# Dependency Managment
 
 Dependency management is performed in two places.
 There is a `setup.py` file and the `requirements.txt` file.
 
 Dependency management is well discussed in our [developer guide (`docs/development.md`)](docs/development.md).
 
-### TODO: setup your requirments.txt
+## TODO: setup your requirments.txt
 
 Dependency management using Python Virtual Environments is the best way to go!
 
@@ -101,7 +99,7 @@ For example, you may depend on the popular [`requests` package](https://pypi.org
 
 The produced `requirements.txt` file captures all of the packages that are required to support your dependencies!
 
-### TODO: setup your setup.py
+## TODO: setup your setup.py
 
 In `setup.py`, there is the **minimum** List of packages required for installation: `install_requires`.
 This list should follow best practices, I.e.,
@@ -111,7 +109,7 @@ This list should follow best practices, I.e.,
 
 
 
-## Documentation Management
+# Documentation Management
 
 We use [MkDocs](https://www.mkdocs.org/) to manage project documentation.
 There are several pieces of documentation to review
@@ -132,32 +130,32 @@ There are several pieces of documentation to review
 * `mkdocs.yml` is a MkDocs configuration file, used to 'serve' the `docs/` directory using MkDocs (discussed in `docs/README.md`).
 * `MANIFEST.in` exists to ensure that setuptools packaging process include the `docs/` directory.
 
-### TODO: setup your documentation
+## TODO: setup your documentation
 
 1. Provide your project's name in `mkdocs.yml`
 2. Search through the `docs` directory for "TODO"s.
 
 
 
-## Packaging
+# Packaging
 
 TODO: discuss setup.py
 
 
 
-## Exposing CLI tools
+# Exposing CLI tools
 
 TODO
 
 
 
-## Automatic Testing
+# Automatic Testing
 
 TODO
 
 
 
-## Continuous Integration and Deployment
+# Continuous Integration and Deployment
 
 TODO
 
