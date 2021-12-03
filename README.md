@@ -85,17 +85,17 @@ Dependency management using Python Virtual Environments is the best way to go!
 
 1. Creat a Python Virtual Environment in your project, and activate it (`venv/`)
 
-       python3 -m venv venv
-       source venv/bin/activate
+        python3 -m venv venv
+        source venv/bin/activate
 
 2. Now that the venv is active, install dependencies using `pip`. 
 For example, you may depend on the popular [`requests` package](https://pypi.org/project/requests/).
 
-      pip install requests
+        pip install requests
 
 3. Finally, run `pip freeze > requirements.txt` to lock **all** the package versions in this project.
 
-      pip freeze > requirments.txt
+        pip freeze > requirments.txt
 
 The produced `requirements.txt` file captures all of the packages that are required to support your dependencies!
 
@@ -123,12 +123,13 @@ There are several pieces of documentation to review
     ├── mkdocs.yml
     ├── README.md
 
-> The `docs/` directory is perfectly readable as Markdown without even installing MkDocs.
+> The `docs/` directory is perfectly readable as Markdown without even installing MkDocs!
+> E.g., It works perfectly well when viewed on your SCM server, in VSCode, as well as other 'Markdown Rendering' tools!
 
-* `README.md` is just a pointer to `docs/README.md` (see `README.md.template`).
 * `docs/` contains documentation for the entire project.
-* `mkdocs.yml` is a MkDocs configuration file, used to 'serve' the `docs/` directory using MkDocs (discussed in `docs/README.md`).
 * `MANIFEST.in` exists to ensure that setuptools packaging process include the `docs/` directory.
+* `mkdocs.yml` is a MkDocs configuration file, used to 'serve' the `docs/` directory using MkDocs (discussed in [`docs/README.md`](docs/README.md)).
+* `README.md` is just a pointer to `docs/README.md` (see [`README.md.template`](README.md.template)).
 
 ## TODO: setup your documentation
 
