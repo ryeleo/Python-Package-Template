@@ -3,7 +3,7 @@ Python projects must have some standard structure if we want to standardize arou
 * Dependency Management.
 * Technical Documentation Management (via MkDocs).
 * Packaging (via setuptools).
-* Exposing CLI Tools (via 'Command Line Scripts').
+    * Exposing CLI Tools (via 'Command Line Scripts').
 * Automatic Testing (via pytest).
 * Continuous Integration and Deployment (via Jenkins).
 
@@ -77,6 +77,8 @@ To get started using this project sturcture for your own project, here are the i
 Dependency management is performed in two places.
 There is a `setup.py` file and the `requirements.txt` file.
 
+> The former is discussed more in the Packaging section below.
+
 Dependency management is well discussed in our [developer guide (`docs/development.md`)](docs/development.md).
 
 ## TODO: setup your requirments.txt
@@ -88,10 +90,10 @@ Dependency management using Python Virtual Environments is the best way to go!
         python3 -m venv venv
         source venv/bin/activate
 
-2. Now that the venv is active, install dependencies using `pip`. 
-For example, you may depend on the popular [`requests` package](https://pypi.org/project/requests/).
+2. Now that the venv is active, install your development-dependencies using `pip`. 
+For example, you will want to install our standard development dependencies: `flake8` and `pytest`.
 
-        pip install requests
+        pip install flake8 pytest
 
 3. Finally, run `pip freeze > requirements.txt` to lock **all** the package versions in this project.
 
@@ -99,13 +101,16 @@ For example, you may depend on the popular [`requests` package](https://pypi.org
 
 The produced `requirements.txt` file captures all of the packages that are required to support your dependencies!
 
-## TODO: setup your setup.py
+## TODO: setup your setup.py install_requires
 
 In `setup.py`, there is the **minimum** List of packages required for installation: `install_requires`.
 This list should follow best practices, I.e.,
 
 1. do **NOT** pin specific versions, and 
 2. do **NOT** specify sub-dependencies.
+
+> This list should only include dependencies that production code depends on.
+> E.g., `pytest` and `flake8` should *never* be part of `install_requires`.
 
 
 
@@ -140,19 +145,19 @@ There are several pieces of documentation to review
 
 # Packaging
 
-TODO: discuss setup.py
+Packaging is all done via setuptools, as dictated by [`setup.py`](setup.py).
 
+## TODO: Setup your setup.py `entry_points` and more
 
-
-# Exposing CLI tools
-
-TODO
+1. If you want to expose any command-line tools from your package, update `entry_points`.
+2. Finally, search in [`setup.py`](setup.py) for any remaining "TODO"s.
+    * E.g., name, description, keywords, classifiers.
 
 
 
 # Automatic Testing
 
-TODO
+The basics of automatic testing with pytest is discussed at the end of our [developer guide (`docs/development.md`)](docs/development.md).
 
 
 

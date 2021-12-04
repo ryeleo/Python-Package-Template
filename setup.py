@@ -10,9 +10,9 @@ def read_project_file(relative_file_path):
 
 
 setup(
-    name="examplepkg", # TODO: Update to match your package directory's name
-    version='0.1.0',  # Try to follow 'semantic versioning', i.e. https://semver.org/ 
-    description="TODO", # TODO: Fill-in a *short* description
+    name="examplepkg",          # TODO: Update to match your package directory's name
+    version='0.1.0',            # Try to follow 'semantic versioning', i.e. https://semver.org/ 
+    description="TODO",         # TODO: Fill-in a single line of text, not more than 200 characters.
     long_description_content_type='text/markdown',
     long_description=read_project_file('docs/user-guide.md'),
     include_package_data=True,
@@ -21,22 +21,21 @@ setup(
     license='MIT',
     author='University of Oregon',
     author_email='ntsjenkins@uoregon.edu',
-    keywords=['NTS', 'UO'], # Provide ANY additional keywords that you want to!
-    entry_points={ # TODO: Fill-in console_scripts -- remove if you have no CLI.
+    entry_points={              # TODO: Fill-in console_scripts -- delete if you have no CLI tools.
         'console_scripts': [
             'hello=examplepkg.hello_world:main'
-            # Place `hello` command in PATH: enables running `hello` as a command-line interface tool.
+            # Example: Places `hello` command in PATH: enables running `hello` as a command-line interface tool.
         ]
     },
     install_requires=[
-        # TODO: List of the MINIMUM set of packages -- remove if you only require the Python stdlib!
+        # TODO: List of the MINIMUM set of packages -- delete if you only require the Python stdlib!
         # I.e., (1) do NOT pin specific versions, and 
         #       (2) do NOT specify sub-dependencies.
     ],
-    classifiers=[  # TODO: Classifiers selected from https://pypi.org/classifiers/
+    keywords=['NTS', 'UO'],     # Provide ANY additional keywords that you want to!
+    classifiers=[               # Provide classifiers selected from https://pypi.org/classifiers/
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers', 
-        'Topic :: Software Development :: Build Tools',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
