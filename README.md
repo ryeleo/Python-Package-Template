@@ -8,8 +8,7 @@ Python projects must have some standard structure if we want to standardize arou
 * Continuous Integration and Deployment (via Jenkins).
 
 This repository is a starting point for any python project!
-
-> This `README.md` file should be replaced with `README.md.template` in *your* project repo!
+You should clone this project and make updates as indicated below.
 
 Before jumping into details and instructions, it is worth reviewing our project structure in the file system.
 
@@ -69,6 +68,9 @@ To get started using this project sturcture for your own project, here are the i
     * For **public** projects, we try to follow PEP8 convention: "Python packages should also have short, all-lowercase names, although the use of underscores is discouraged."
     * For **private** projects, underscores *should* be used in the name if it improves readability.
 2. Delete (or rename) `hello_world.py` and `test_hello_world.py`
+3. Replace this `README.md` with `README.md.template`.
+    * You can continue to reference *this* (meta) README.md in our SCM server: https://git.uoregon.edu/projects/ISN/repos/python_project_structure/browse
+
 
 
 
