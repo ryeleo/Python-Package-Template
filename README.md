@@ -147,7 +147,7 @@ There are several pieces of documentation to review
 
 Packaging is all done via setuptools, as dictated by [`setup.py`](setup.py).
 
-## TODO: Setup your setup.py `entry_points` and more
+## TODO: setup your setup.py details and entry_points
 
 1. If you want to expose any command-line tools from your package, update `entry_points`.
 2. Finally, search in [`setup.py`](setup.py) for any remaining "TODO"s.
