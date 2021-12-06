@@ -6,12 +6,13 @@
 
 This documentation is split into the following sections:
 
-> TODO: Maintain a table of contents for the `docs/` directory.
+> TODO: This 'todo' is actually just a reminder to maintain this "Table of Contents" (ToC) for the `docs/` directory. 
+> Maintaining a ToC is helpful to anyone reviewing the `docs/` directory without using MkDocs.
 
-* [User Guide](user-guide.md): Learn how to use this library/tool.
-* [Developer Guide](development.md): Guide for future developers.
-* [Release Notes](release-notes.md): See the release history.
-* [Deployment documentation](jenkins-cicd.md): Guide for maintaining continuous integration and delivery process (CICD).
+* [User Guide](user-guide.md)
+* [Developer Guide](development.md)
+* [Release Notes](release-notes.md)
+* [Deployment Guide](jenkins-cicd.md)
 
 ## MkDocs 
 
