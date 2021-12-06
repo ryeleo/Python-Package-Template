@@ -1,6 +1,4 @@
 site_name: TODO (provide site name in mkdocs.yml)
-theme:
-  name: material
 nav:
     - User Guide: user-guide.md
     - Developer Guide: development.md
