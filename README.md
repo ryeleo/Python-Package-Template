@@ -111,6 +111,13 @@ This list should follow best practices, I.e.,
 1. do **NOT** pin specific versions, and 
 2. do **NOT** specify sub-dependencies.
 
+Assuming your project depends on the `netdot` and `requests` packages, you're  `install_requires` list will look something like the following:
+
+    install_requires=[
+        "netdot>=0.1", 
+        "requests>=2.0"
+    ]
+
 > This list should only include dependencies that production code depends on.
 > E.g., `pytest` and `flake8` should *never* be part of `install_requires`.
 

@@ -31,6 +31,9 @@ setup(
         # TODO: List of the MINIMUM set of packages -- delete if you only require the Python stdlib!
         # I.e., (1) do NOT pin specific versions, and 
         #       (2) do NOT specify sub-dependencies.
+        # E.g. you may have the following two lines:
+        #      "netdot>=0.1", 
+        #      "requests>=2.0"
     ],
     keywords=['NTS', 'UO'],     # Provide ANY additional keywords that you want to!
     classifiers=[               # Provide classifiers selected from https://pypi.org/classifiers/
