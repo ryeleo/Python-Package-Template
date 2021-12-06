@@ -10,9 +10,9 @@ def read_project_file(relative_file_path):
 
 
 setup(
-    name="examplepkg",          # TODO: Update to match your package directory's name
+    name='examplepkg',          # TODO: Update to match your package directory's name
     version='0.1.0',            # Try to follow 'semantic versioning', i.e. https://semver.org/ 
-    description="TODO",         # TODO: Fill-in a single line of text, not more than 200 characters.
+    description='TODO',         # TODO: Fill-in a single line of text, not more than 200 characters.
     long_description_content_type='text/markdown',
     long_description=read_project_file('docs/user-guide.md'),
     include_package_data=True,
@@ -32,8 +32,8 @@ setup(
         # I.e., (1) do NOT pin specific versions, and 
         #       (2) do NOT specify sub-dependencies.
         # E.g. you may have the following two lines:
-        #      "netdot>=0.1", 
-        #      "requests>=2.0"
+        #      'netdot>=0.1', 
+        #      'requests>=2.0'
     ],
     keywords=['NTS', 'UO'],     # Provide ANY additional keywords that you want to!
     classifiers=[               # Provide classifiers selected from https://pypi.org/classifiers/

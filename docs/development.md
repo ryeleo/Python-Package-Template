@@ -44,6 +44,19 @@ This list should follow best practices, I.e.,
 1. do **NOT** pin specific versions, and 
 2. do **NOT** specify sub-dependencies.
 
+#### Testing Production Dependencies
+
+> The normal development workflow will install dependencies specified in `requirements.txt` -- here we omit that step so that we can test the setup.py 
+
+Production dependencies outlined in `setup.py` **should be tested when they are created/updated**, to ensure the dependencies are sufficiant.
+Create a virtual environment specifically for this purpose:
+
+    python3 -m venv venv-setup.py
+    source venv-setup.py/bin/activate
+    pip install --editable .
+
+Ensure your package tools/tests work as expected using this `venv-setup.py`!
+
 ## Automated Testing
 
 pytest is used to automatically testing this project.
