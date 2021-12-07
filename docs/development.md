@@ -34,7 +34,7 @@ This follows [general Python practices, (discussed on python.org)](https://packa
 If you make changes to dependencies, be sure to update requirements.txt.
 The following command will update requirements.txt (and will correctly omit 'editable' packages).
 
-    pip freeze | grep -i ^-e > requirements.txt
+    pip freeze | grep -v ^-e > requirements.txt
 
 ### Production Dependencies: `setup.py`
 
