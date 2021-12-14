@@ -83,7 +83,7 @@ There is a `setup.py` file and the `requirements.txt` file.
 
 Dependency management is well discussed in our [developer guide (`docs/development.md`)](docs/development.md).
 
-## TODO: setup your requirments.txt
+## TODO: setup your requirements.txt
 
 Dependency management using Python Virtual Environments is the best way to go!
 
@@ -99,7 +99,7 @@ For example, you will want to install our standard development dependencies: `fl
 
 3. Finally, run `pip freeze > requirements.txt` to lock **all** the package versions in this project.
 
-        pip freeze > requirments.txt
+        pip freeze > requirements.txt
 
 The produced `requirements.txt` file captures all of the packages that are required to support your dependencies!
 
