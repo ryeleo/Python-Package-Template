@@ -60,7 +60,7 @@ The project structure can be conceptually split into three chunks:
 > If you have not used this project structure, I recommend getting the `examplepkg` up and running.
 > Read through [`docs/development.md`](docs/development.md) to get `examplepkg` installed -- including the `hello` command-line tool!
 
-To get started using this project sturcture for your own project, here are the initial steps:
+To get started using this project structure for your own project, here are the initial steps:
 
 > Further instructions are provided in "TODO: setup your..." sections below.
 
@@ -71,12 +71,12 @@ To get started using this project sturcture for your own project, here are the i
         * This convention is against PEP8... So, why? This is for practical use of setuptools + pip: underscores are actually incompatible with setuptools when using our pypi.uoregon.edu server. See [(somewhat) relevant stack overflow answer](https://stackoverflow.com/a/19131777/1227086)
 2. Delete (or rename) `hello_world.py` and `test_hello_world.py`
 3. Replace this `README.md` with `README.md.template`.
-    * You can continue to reference *this* (meta) README.md in our SCM server: https://git.uoregon.edu/projects/ISN/repos/python_project_structure/browse
+    * You can continue to reference *this* (meta) README.md in our SCM server: https://git.uoregon.edu/projects/ISN/repos/python-project-structure/browse
 
 
 
 
-# Dependency Managment
+# Dependency Management
 
 Dependency management is performed in two places.
 There is a `setup.py` file and the `requirements.txt` file.
@@ -89,7 +89,7 @@ Dependency management is well discussed in our [developer guide (`docs/developme
 
 Dependency management using Python Virtual Environments is the best way to go!
 
-1. Creat a Python Virtual Environment in your project, and activate it (`venv/`)
+1. Create a Python Virtual Environment in your project, and activate it (`venv/`)
 
         python3 -m venv venv
         source venv/bin/activate

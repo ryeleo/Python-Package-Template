@@ -14,7 +14,16 @@
         "E201,E202,E226,E231,E302,E401,E501,W291"
     ],
     "cSpell.words": [
-        "NTS"
+        "examplepkg",
+        "Jenkinsfile",
+        "mkdocs",
+        "netdot",
+        "NTS",
+        "ntsjenkins",
+        "pypi",
+        "pytest",
+        "setuptools",
+        "venv"
     ],
     "files.exclude": {
         "**/__pycache__": true,
