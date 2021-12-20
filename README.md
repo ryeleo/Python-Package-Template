@@ -65,8 +65,10 @@ To get started using this project sturcture for your own project, here are the i
 > Further instructions are provided in "TODO: setup your..." sections below.
 
 1. Rename the `examplepkg` directory in the `src/` directory.
-    * For **public** projects, we try to follow PEP8 convention: "Python packages should also have short, all-lowercase names, although the use of underscores is discouraged."
-    * For **private** projects, underscores *should* be used in the name if it improves readability.
+    * For **public** projects, we try to follow PEP8 convention: "Python packages should have short, all-lowercase names..."
+    * For **private** projects, **hyphens** *should* be used in the name if it improves readability.
+    * **NOTICE: We do NOT use underscores (and only use hyphens)** when needed for package names in Python. 
+        * This convention is against PEP8... So, why? This is for practical use of setuptools + pip: underscores are actually incompatible with setuptools when using our pypi.uoregon.edu server. See [(somewhat) relevant stack overflow answer](https://stackoverflow.com/a/19131777/1227086)
 2. Delete (or rename) `hello_world.py` and `test_hello_world.py`
 3. Replace this `README.md` with `README.md.template`.
     * You can continue to reference *this* (meta) README.md in our SCM server: https://git.uoregon.edu/projects/ISN/repos/python_project_structure/browse
