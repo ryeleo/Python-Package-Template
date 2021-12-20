@@ -65,10 +65,8 @@ To get started using this project structure for your own project, here are the i
 > Further instructions are provided in "TODO: setup your..." sections below.
 
 1. Rename the `examplepkg` directory in the `src/` directory.
-    * For **public** projects, we try to follow PEP8 convention: "Python packages should have short, all-lowercase names..."
-    * For **private** projects, **hyphens** *should* be used in the name if it improves readability.
-    * **NOTICE: We do NOT use underscores (and only use hyphens)** when needed for package names in Python. 
-        * This convention is against PEP8... So, why? This is for practical use of setuptools + pip: underscores are actually incompatible with setuptools when using our pypi.uoregon.edu server. See [(somewhat) relevant stack overflow answer](https://stackoverflow.com/a/19131777/1227086)
+    * For **public** projects, we try to follow PEP8 convention: "Python packages should have short, all-lowercase names... the use of underscores is discouraged."
+    * For **private** projects, underscores *should* be used in the name if it improves readability (or if it makes naming easier)!
 2. Delete (or rename) `hello_world.py` and `test_hello_world.py`
 3. Replace this `README.md` with `README.md.template`.
     * You can continue to reference *this* (meta) README.md in our SCM server: https://git.uoregon.edu/projects/ISN/repos/python-project-structure/browse
@@ -153,7 +151,6 @@ There are several pieces of documentation to review
 2. Search through the `docs` directory for "TODO"s.
 
 
-
 # Packaging
 
 Packaging is all done via setuptools, as dictated by [`setup.py`](setup.py).
@@ -161,6 +158,9 @@ Packaging is all done via setuptools, as dictated by [`setup.py`](setup.py).
 ## TODO: setup your setup.py details and entry_points
 
 1. If you want to expose any command-line tools from your package, update `entry_points`.
+2. Update the `name` of the package, **replacing underscores with hyphens.**
+    * **NOTICE: We do NOT use underscores (and only use hyphens)** for the setup.py `name` in Python. 
+    * This convention is against PEP8... So, why do this? This is for practical use of setuptools + pip: underscores are actually incompatible with setuptools when using our pypi.uoregon.edu server. See [(somewhat) relevant stack overflow answer](https://stackoverflow.com/a/19131777/1227086)
 2. Finally, search in [`setup.py`](setup.py) for any remaining "TODO"s.
     * E.g., name, description, keywords, classifiers.
 
