@@ -11,7 +11,7 @@
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": [
         "--ignore",
-        "E201,E202,E226,E231,E302,E401,E501,W291"
+        "E201,E202,E226,E231,E302,E401,E501,W291,W503"
     ],
     "cSpell.words": [
         "examplepkg",
