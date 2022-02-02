@@ -174,7 +174,36 @@ The basics of automatic testing with pytest is discussed at the end of our [deve
 
 # Continuous Integration and Deployment
 
-TODO
+We use a Jenkins Shared Library to provide a single command to enable CICD for any python project on our BitBucket server.
+## Initial, One-Time Setup Steps
 
-TODO: Setup a default pipeline in ntsjenkins to enable building this project with a VERY simple Jenkinsfile.
-The only parameter in the Jenkinsfile should be 'pythonPackageIndex' -- to allow users to select between pypi.uoregon.edu (private) and pypi.org (public).
+There are a couple of pieces that we need to establish before CICD will work for your new python project.
+These include updating your project's Jenkinsfile, and updating Bitbucket to trigger your Jenkins job.
+In short, you will have to do the following, discussed in detail below:
+
+1. Configure Jenkinsfile (choose a Python Package Index).
+2. Set up "Parameterized Build for Jenkins" hook in your Bitbucket repo.
+
+> Our Jenkins server will automatically create a pipeline for any repo in the [ISN project](https://git.uoregon.edu/projects/ISN), via a Jenkins Organization Folder.
+
+### Jenkinsfile: Which Python Package Index?
+
+> If using pypi.uoregon.edu, there are some [additional one-time setup instructions for your package (internal docs)](https://confluence.uoregon.edu/display/NTS/Deploy+to+pypi.uoregon.edu)
+
+You must decide whether you will be publishing to pypi.org or our private pypi.uoregon.edu server.
+
+1. Simply update the `packageIndex` in [your Jenkinsfile](../Jenkinsfile). Choose from:
+    * 'pypi.org' or, 
+    * 'pypi.uoregon.edu'
+
+> See all current options for 'buildPythonProject' (and default values) at [defaultPythonProjectConfig.groovy](https://git.uoregon.edu/projects/ISN/repos/ntsjenkins_shared_library/browse/vars/defaultPythonProjectConfig.groovy)
+
+### Bitbucket Webhook
+
+Our default settings and how to enable them is well discussed in our [internal documentation](https://confluence.uoregon.edu/pages/viewpage.action?pageId=458892621#NTSJenkinsBitbucketIntegration-EnableDefaultSettingsformyrepo).
+
+In short, these are the steps to enable the Bitbucket Webhook in our ISN project:
+
+1. Navigate to your "Repository Settings → Hooks"
+2. Change from 'Inherited (disabled)' to "Enabled" for Parametrized build for Jenkins.
+3. Update the 'Job Name' to align with the Jenkins Job URL.

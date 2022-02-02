@@ -1,4 +1,4 @@
-**NOTICE: Work-in-progress.**
+This project has CICD established via our [Jenkins server](https://is-nts-jenkins.uoregon.edu).
 
 ## Deployment Workflow
 
