@@ -175,6 +175,7 @@ The basics of automatic testing with pytest is discussed at the end of our [deve
 # Continuous Integration and Deployment
 
 We use a Jenkins Shared Library to provide a single command to enable CICD for any python project on our BitBucket server.
+
 ## Initial, One-Time Setup Steps
 
 There are a couple of pieces that we need to establish before CICD will work for your new python project.
