@@ -117,24 +117,22 @@ There are several pieces of documentation to review
 
 # Packaging
 
-Packaging is all done via setuptools, as dictated by [`setup.py`](setup.py).
+Packaging is all done via Hatch.
 
-## TODO: setup your setup.py details and entry_points
+## TODO: Update "pyproject.toml"
 
-1. If you want to expose any command-line tools from your package, update `entry_points`.
-2. Update the `name` of the package, **replacing underscores with hyphens.**
-    * **NOTICE: We do NOT use underscores (and only use hyphens)** for the setup.py `name` in Python. 
+> ℹ Run a 'find' for "TODO" in "pyproject.toml"  
+
+1. If you want to expose any command-line tools from your package, update `project.scripts`.
+2. Update the `name` of the project, **replacing underscores with hyphens.**
+    * **NOTICE: We do NOT use underscores (and only use hyphens)**. 
     * This convention is against PEP8... So, why do this? This is for practical use of setuptools + pip: underscores are actually incompatible with setuptools when using our pypi.uoregon.edu server. See [(somewhat) relevant stack overflow answer](https://stackoverflow.com/a/19131777/1227086)
-2. Finally, search in [`setup.py`](setup.py) for any remaining "TODO"s.
-    * E.g., name, description, keywords, classifiers.
-
-
+2. Finally, search in "pyproject.toml" and "hatch.toml" for any remaining "TODO"s.
+    * E.g., description, keywords, classifiers.
 
 # Automatic Testing
 
 The basics of automatic testing with pytest is discussed at the end of our [developer guide (`docs/development.md`)](docs/development.md).
-
-
 
 # Continuous Integration and Deployment
 

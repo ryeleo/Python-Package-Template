@@ -37,26 +37,3 @@ The workflow to trigger a new deployment is the very simple pull request workflo
     * CI runs at this point (running all automated tests).
 3. Once Jenkins has completed its CI run, **merge** the pull request
     * CD runs at this point (deploying to the appropriate Python Package Index)
-
-## Initial, One-Time Setup Steps
-
-There are a few pieces that we need to establish the first time deploying this tool.
-These include updating this project's Jenkinsfile and updating Bitbucket to trigger Jenkins webhooks.
-In short, you will have to do the following, discussed in detail below:
-
-1. Decide which Python Package index to use (via Jenkinsfile).
-2. Set up the "Parameterized Build for Jenkins" plugin in your Bitbucket repo.
-
-### Which Python Package Index?
-
-> If using pypi.uoregon.edu, there are some [additional one-time setup instructions for your package (internal docs)](https://confluence.uoregon.edu/display/NTS/Deploy+to+pypi.uoregon.edu)
-
-First, you must decide whether you will be publishing to pypi.org or our private pypi.uoregon.edu server.
-
-1. Simply update the `packageIndex:` in [Jenkinsfile](../Jenkinsfile) to either of:
-    * 'pypi.org' or, 
-    * 'pypi.uoregon.edu'
-
-### Establish Bitbucket Hook
-
-Follow our [instructions to "Enable Default Settings for my repo" (internal docs)](https://confluence.uoregon.edu/pages/viewpage.action?pageId=458892621#NTSJenkinsBitbucketIntegration-EnableDefaultSettingsformyrepo)
