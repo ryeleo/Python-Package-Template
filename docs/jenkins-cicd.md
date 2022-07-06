@@ -1,4 +1,4 @@
-We use Continuous Integration and Delivery/Deployment (CICD) for this project.
+We use Continuous Integration and Delivery (CICD) for this project.
 
 This project has CICD established via our [Jenkins server](https://is-nts-jenkins.uoregon.edu).
 
@@ -34,6 +34,6 @@ The workflow to trigger a new deployment is the very simple pull request workflo
 
 1. **`git push`** your new branch to the Source Control Management (SCM) server.
 2. Log in to the SCM server and **create a pull request**.
-    * CI runs at this point (running all automated tests).
+    * Continuous Integration (CI) runs at this point (running all automated tests).
 3. Once Jenkins has completed its CI run, **merge** the pull request
-    * CD runs at this point (deploying to the appropriate Python Package Index)
+    * Continuous Delivery (CD) runs at this point (deploying to the appropriate Python Package Index)
