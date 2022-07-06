@@ -146,9 +146,7 @@ The basics of automatic testing with pytest is discussed at the end of our [deve
 
 > ⚠ NOTICE: Work is in progress to transition to using GitHub Action Workflows instead of our private Jenkins server.
 
-We use a Jenkins Shared Library to provide a single command to enable CICD for any python project on our BitBucket server.
-
-## Initial, One-Time Setup Steps
+We use a Jenkins Shared Library to provide a single command to enable CICD for any python project hosted on our git.uoregon.edu server.
 
 There are a couple of pieces that we need to establish before CICD will work for your new python project.
 These include updating your project's Jenkinsfile, and updating Bitbucket to trigger your Jenkins job.
@@ -159,7 +157,7 @@ In short, you will have to do the following, discussed in detail below:
 
 > Our Jenkins server will automatically create a pipeline for any repo in the [ISN project](https://git.uoregon.edu/projects/ISN), via a Jenkins Organization Folder.
 
-### Jenkinsfile: Which Python Package Index?
+## TODO: Which Python Package Index?
 
 > If using pypi.uoregon.edu, there are some [additional one-time setup instructions for your package (internal docs)](https://confluence.uoregon.edu/display/NTS/Deploy+to+pypi.uoregon.edu)
 
@@ -171,7 +169,7 @@ You must decide whether you will be publishing to pypi.org or our private pypi.u
 
 > See all current options for 'buildPythonProject' (and default values) at [defaultPythonProjectConfig.groovy](https://git.uoregon.edu/projects/ISN/repos/ntsjenkins_shared_library/browse/vars/defaultPythonProjectConfig.groovy)
 
-### Bitbucket Webhook
+## TODO: Bitbucket Webhook
 
 Our default settings and how to enable them is well discussed in our [internal documentation](https://confluence.uoregon.edu/pages/viewpage.action?pageId=458892621#NTSJenkinsBitbucketIntegration-EnableDefaultSettingsformyrepo).
 
