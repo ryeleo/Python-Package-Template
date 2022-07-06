@@ -42,11 +42,6 @@ Once you have [installed Hatch](#hatch), we can jump right into our development 
 
 At this point, running `pip freeze` should reveal that all dependencies are installed for you!
 
-> In fact, you can grep for "-e " to ensure that this package is correctly installed in editable mode. 
->```bash
-> pip freeze | grep "-e "
->```
-
 ### Any Issues?
 
 A great place to start if there are issues with Getting Started, is to run `hatch env prune`. 
@@ -69,6 +64,11 @@ This list should follow best practices, I.e.,
 
 1. do **NOT** pin specific versions, and 
 2. do **NOT** specify sub-dependencies.
+
+> TODO: decide whether to pin major version of dependencies...
+>
+> As an example, when building an application (e.g. CLI Tool).
+> Assuming dependencies follow [semantic versioning](https://semver.org), maybe we should pin the major version of dependencies.
 
 ### Development Dependencies 
 
