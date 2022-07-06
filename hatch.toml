@@ -14,15 +14,15 @@ HATCH_ENV_TYPE_VIRTUAL_PATH = "venv"
 
 [build.targets.sdist]
 exclude = [
-  "tests/**/cassettes",  # VCRPy 'HTTP Replays' -- might contain secrets if not careful
+  "tests/**/cassettes", # VCRPy 'HTTP Replays' -- might contain secrets if not careful
 ]
 
 [build.targets.wheel]
 exclude = [
-  "tests/**/cassettes",  # VCRPy 'HTTP Replays' -- might contain secrets if not careful
+  "tests/**/cassettes", # VCRPy 'HTTP Replays' -- might contain secrets if not careful
 ]
 
-[build.hooks.custom]  # See "hatch_build.py"
+[build.hooks.custom] # See "hatch_build.py"
 
 #
 # "dev" environment: For developers who want to update this code base.
@@ -43,21 +43,22 @@ exclude = [
 #  hatch run dev:coveragee
 #
 [envs.dev]
-python = "3.6"
 dependencies = [
+  # TODO Update add/remove dependencies as needed   
   "pytest",
-  "pytest-vcr",
+  "pytest-vcr", # Saves HTTP-replays (cassettes) as test data  
   "pytest-coverage",
   "assertpy",
-  "autopep8",
-  "isort",
-  "flake8",
-  "hatchling",
+  "autopep8", # Auto-format Python files
+  "isort", # Auto-sort import statements
+  "flake8", # Python linter
+  "hatchling", # Required by "hatch_build.py"
 ]
+python = "3.6"
 
 [envs.dev.scripts]
-test = "pytest --doctest-modules"
 coveragee = "coverage run -m pytest --doctest-modules tests && coverage xml; coverage html;"
+test = "pytest --doctest-modules"
 
 #
 # "docs" environment: For viewing "docs/" directory, rendered by MkDocs.
@@ -85,16 +86,20 @@ serve = "mkdocs serve --dev-addr localhost:8000"
 #  hatch run cicd:test
 #
 [envs.cicd]
-python = "3.6"
 dependencies = [
-    "pytest",
-    "pytest-vcr",
-    "assertpy",
+  # TODO Update add/remove dependencies as needed   
+  "pytest",
+  "pytest-vcr", # Saves HTTP-replays (cassettes) as test data 
+  "assertpy",
+  "hatchling", # Required by "hatch_build.py"
 ]
 
+[[envs.cicd.matrix]]
+python = ["36", "38"]
+
 [envs.cicd.scripts]
-test = "pytest --doctest-modules --vcr-record=none --junitxml=test_report.xml src/ tests/"
-infer-package-name = "echo example-package"  # TODO: Update to your package name
+infer-package-name = "echo example-package" # TODO: Update to your package name
+test = "pytest --doctest-modules --vcr-record=none --junitxml=test_report.xml src/ tests/" 
 
 [envs.cicd.env-vars]
 CI = "True"
