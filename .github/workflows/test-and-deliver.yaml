@@ -1,0 +1,47 @@
+name: Test (and Deliver when merged)
+
+on: 
+  pull_request:
+  push: 
+    branches:
+      - main
+
+jobs:
+  test-and-deliver:
+    runs-on: ubuntu-latest  # TODO: switch to "self-hosted" once stable 
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      # Setup Python (faster than using Python container)
+      - name: Setup Python3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+      - name: Setup Python3.6
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.6"
+
+      - name: Install Annotate Test Results Plugin
+        run: pip install pytest-github-actions-annotate-failures
+
+      - name: Test
+        run: |
+          hatch run cicd:test
+      
+      - name: Package 📦
+        run: |
+          hatch build
+        
+      - name: Publish 📦 to PyPI
+        if: github.ref == 'refs/heads/main'
+        uses: pypa/gh-action-pypi-publish@release/v1.5
+        with:
+          user: __token__
+          password: ${{ secrets.NTSJENKINS_PYPI }}

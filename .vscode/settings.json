@@ -21,6 +21,7 @@
         "netdot",
         "NTS",
         "ntsjenkins",
+        "pypa",
         "pypi",
         "pyproject",
         "pytest",

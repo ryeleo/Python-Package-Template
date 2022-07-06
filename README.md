@@ -121,20 +121,30 @@ Packaging is all done via Hatch.
 
 ## TODO: Update "pyproject.toml"
 
-> ℹ Run a 'find' for "TODO" in "pyproject.toml"  
+> ℹ Tip: Search for the word "TODO" in "pyproject.toml" and "hatch.toml"
 
-1. If you want to expose any command-line tools from your package, update `project.scripts`.
-2. Update the `name` of the project, **replacing underscores with hyphens.**
-    * **NOTICE: We do NOT use underscores (and only use hyphens)**. 
-    * This convention is against PEP8... So, why do this? This is for practical use of setuptools + pip: underscores are actually incompatible with setuptools when using our pypi.uoregon.edu server. See [(somewhat) relevant stack overflow answer](https://stackoverflow.com/a/19131777/1227086)
-2. Finally, search in "pyproject.toml" and "hatch.toml" for any remaining "TODO"s.
+1. Replace any instance of "`example-package`" with "`my-package`"
+2. Replace any instance of "`example_package`" with "`my_package`"
+
+> ℹ Why use both hyphens and underscores? This follows PyPI.org common practices:
+> * We use hyphens for package's published-name, enabling `pip install my-package`
+> * Yet we MUST use underscores for the package's directory name.
+>
+> ℹ This convention is against PEP8... So, why do this? This is for practical use of setuptools + pip: underscores are actually incompatible with setuptools when using our pypi.uoregon.edu server. See [(somewhat) relevant stack overflow answer](https://stackoverflow.com/a/19131777/1227086)
+
+3. If you want to expose any command-line tools from your package, update `project.scripts`.
+
+4. Finally, search in "pyproject.toml" and "hatch.toml" for any remaining "TODO"s.
     * E.g., description, keywords, classifiers.
+
 
 # Automatic Testing
 
 The basics of automatic testing with pytest is discussed at the end of our [developer guide (`docs/development.md`)](docs/development.md).
 
 # Continuous Integration and Deployment
+
+> ⚠ NOTICE: Work is in progress to transition to using GitHub Action Workflows instead of our private Jenkins server.
 
 We use a Jenkins Shared Library to provide a single command to enable CICD for any python project on our BitBucket server.
 
