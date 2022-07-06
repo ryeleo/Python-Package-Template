@@ -1,3 +1,0 @@
-# TODO: run `pip freeze > requirements.txt` to recreate this file with your dependencies.
-pytest
-flake8

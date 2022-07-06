@@ -1,6 +1,7 @@
 site_name: TODO (provide site_name in mkdocs.yml)
 nav:
-    - User Guide: user-guide.md
-    - Developer Guide: development.md
-    - Deployment Guide: jenkins-cicd.md
-    - Release Notes: release-notes.md
+  - Home: README.md
+  - User Guide: user-guide.md
+  - Developer Guide: development.md
+  - Deployment Guide: jenkins-cicd.md
+  - Release Notes: release-notes.md

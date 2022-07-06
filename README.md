@@ -1,4 +1,6 @@
-Python projects must have some standard structure if we want to standardize around the following:
+# Python Project Template 0.1.0
+
+Python projects are much easier to use and maintain if we standardize around the following:
 
 * Dependency Management.
 * Technical Documentation Management (via MkDocs).
@@ -73,55 +75,18 @@ To get started using this project structure for your own project, here are the i
 
 
 
-
 # Dependency Management
 
-Dependency management is performed in two places.
-There is a `setup.py` file and the `requirements.txt` file.
+Dependency management is covered in our [Developer docs](docs/development.md).
 
-> The former is discussed more in the Packaging section below.
+## TODO: Setup Dependencies
 
-Dependency management is well discussed in our [developer guide (`docs/development.md`)](docs/development.md).
+> ℹ See [Developer docs](docs/development.md) that discuss Dependency management in depth.
 
-## TODO: setup your requirements.txt
+1. Ensure that production and development dependencies are sufficient but not too restrictive.
+    * E.g., double check that 'best practices' are followed, as outlined in the [Developer docs](docs/development.md).
 
-Dependency management using Python Virtual Environments is the best way to go!
-
-1. Create a Python Virtual Environment in your project, and activate it (`venv/`)
-
-        python3 -m venv venv
-        source venv/bin/activate
-
-2. Now that the venv is active, install your development-dependencies using `pip`. 
-For example, you will want to install our standard development dependencies: `flake8` and `pytest`.
-
-        pip install flake8 pytest
-
-3. Finally, run `pip freeze > requirements.txt` to lock **all** the package versions in this project.
-
-        pip freeze > requirements.txt
-
-The produced `requirements.txt` file captures all of the packages that are required to support your dependencies!
-
-## TODO: setup your setup.py install_requires
-
-In `setup.py`, there is the **minimum** List of packages required for installation: `install_requires`.
-This list should follow best practices, I.e.,
-
-1. do **NOT** pin specific versions, and 
-2. do **NOT** specify sub-dependencies.
-
-Assuming your project depends on the `netdot` and `requests` packages, you're  `install_requires` list will look something like the following:
-
-    install_requires=[
-        "netdot>=0.1", 
-        "requests>=2.0"
-    ]
-
-> This list should only include dependencies that production code depends on.
-> E.g., `pytest` and `flake8` should *never* be part of `install_requires`.
-
-
+> ⚠ When [Hatch gains support for lock files](https://github.com/pypa/hatch/discussions/226#discussioncomment-2714692), we will update this process to include using a lock file for maximum (CICD) stability.
 
 # Documentation Management
 
@@ -149,7 +114,6 @@ There are several pieces of documentation to review
 
 1. Provide your project's name in `mkdocs.yml`
 2. Search through the `docs` directory for "TODO"s.
-
 
 # Packaging
 

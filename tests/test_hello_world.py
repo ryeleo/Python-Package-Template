@@ -1,4 +1,5 @@
-from examplepkg import hello_world
+from example_package import hello_world
+
 
 def test_hello_world():
     # Arrange

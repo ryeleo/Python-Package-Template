@@ -14,6 +14,7 @@
         "E201,E202,E226,E231,E302,E401,E501,W291,W503"
     ],
     "cSpell.words": [
+        "CICD",
         "examplepkg",
         "Jenkinsfile",
         "mkdocs",
@@ -21,6 +22,7 @@
         "NTS",
         "ntsjenkins",
         "pypi",
+        "pyproject",
         "pytest",
         "setuptools",
         "venv"
