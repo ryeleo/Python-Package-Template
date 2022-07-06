@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  test-and-deliver:
+  test:
     runs-on: ubuntu-latest  # TODO: switch to "self-hosted" once stable 
     timeout-minutes: 10
     defaults:
@@ -39,6 +39,27 @@ jobs:
         run: |
           hatch run cicd:test
 
+  deliver:
+    if: github.ref == 'refs/heads/main'
+    needs: test
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      # Setup Python (faster than using Python container)
+      - name: Setup Python3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+      - name: Setup Python3.6
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.6"
+
+      - name: Install Hatch
+        run: |
+          python3.8 -m pip install hatch
+
       - name: Package 📦
         run: |
           hatch build
@@ -54,7 +75,6 @@ jobs:
         tag: "${{ env.VERSION }}"
  
       - name: Publish 📦 to PyPI
-        if: github.ref == 'refs/heads/main'
         uses: pypa/gh-action-pypi-publish@release/v1.5
         with:
           user: __token__
