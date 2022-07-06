@@ -4,8 +4,8 @@ import shutil
 from hatchling.builders.hooks.plugin.interface import BuildHookInterface
 
 
-class SpecialBuildHook(BuildHookInterface):
-    PLUGIN_NAME = 'special'
+class HyphenateDistBuildHook(BuildHookInterface):
+    PLUGIN_NAME = 'hyphenated-dist-directory'
 
     def finalize(self, version, build_data, artifact_path):
         self._copy_to_dist_hyphenated(artifact_path)
