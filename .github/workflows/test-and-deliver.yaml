@@ -1,4 +1,5 @@
-name: Test (and Deliver when merged)
+name: "[⚠ WorkInProgress] Test (and Deliver when merged)"
+# This GitHub Actions workflow is not officially supported today -- more testing is needed.
 
 on: 
   pull_request:
@@ -7,13 +8,16 @@ on:
       - main
 
 jobs:
+
+  #
+  # Test Job
+  #
   test:
     runs-on: ubuntu-latest  # TODO: switch to "self-hosted" once stable 
     timeout-minutes: 10
     defaults:
       run:
         shell: bash
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -39,9 +43,17 @@ jobs:
         run: |
           hatch run cicd:test
 
+  #
+  # Deliver Job
+  #
   deliver:
     if: github.ref == 'refs/heads/main'
     needs: test
+    runs-on: ubuntu-latest  # TODO: switch to "self-hosted" once stable 
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
