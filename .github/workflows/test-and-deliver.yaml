@@ -1,0 +1,94 @@
+name: "[⚠ WorkInProgress] Test (and Deliver when merged)"
+# This GitHub Actions workflow is not officially supported today -- more testing is needed.
+
+on: 
+  pull_request:
+  push: 
+    branches:
+      - main
+
+jobs:
+
+  #
+  # Test Job
+  #
+  test:
+    runs-on: ubuntu-latest  # TODO: switch to "self-hosted" once stable 
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      # Setup Python (faster than using Python container)
+      - name: Setup Python3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+      - name: Setup Python3.6
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.6"
+
+      - name: Install Hatch
+        run: |
+          python3.8 -m pip install hatch
+
+      - name: Install Annotate Test Results Plugin
+        run: pip install pytest-github-actions-annotate-failures
+
+      - name: Test
+        run: |
+          hatch run cicd:test
+
+  #
+  # Deliver Job
+  #
+  deliver:
+    if: github.ref == 'refs/heads/main'
+    needs: test
+    runs-on: ubuntu-latest  # TODO: switch to "self-hosted" once stable 
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash
+    # TODO Fix  YAML syntax error here... "You have an error in your yaml syntax on line 57"
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      # Setup Python (faster than using Python container)
+      - name: Setup Python3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+      - name: Setup Python3.6
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.6"
+
+      - name: Install Hatch
+        run: |
+          python3.8 -m pip install hatch
+
+      - name: Package 📦
+        run: |
+          hatch build
+
+      - name: Add VERSION to env
+        run: |
+          echo "VERSION=$(hatch version)" >> $GITHUB_ENV
+
+      - name: Git Tag
+      uses: tvdias/github-tagger@v0.0.1
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        tag: "${{ env.VERSION }}"
+ 
+      - name: Publish 📦 to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1.5
+        with:
+          user: __token__
+          password: ${{ secrets.NTSJENKINS_PYPI }}

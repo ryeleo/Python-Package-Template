@@ -12,6 +12,7 @@ __pycache__/
 build/
 develop-eggs/
 dist/
+dist-hyphenated/
 downloads/
 eggs/
 .eggs/
@@ -51,6 +52,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+test_report.xml
 
 # Translations
 *.mo

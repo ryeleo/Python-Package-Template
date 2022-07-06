@@ -1,71 +1,86 @@
 This document discusses setting up local development for this project on your own personal Linux box. 
 
-## Install Dependencies 
+> We use [Python Hatch](https://hatch.pypa.io/latest/) for this project.
 
-It is wise to do development in an virtual environment.
+## Prerequisites
 
-    python3 -m venv venv
-    source venv/bin/activate
+### Python 3.6
 
-Now dependencies can be installed!
-For development, you SHOULD to use the dependencies that are specified in `requirements.txt`:
+Today, UO is still using Python 3.6.
+So, install Python 3.6, along with distutils.
 
-    pip install -r requirements.txt
+    sudo add-apt-repository ppa:deadsnakes/ppa
+    sudo apt-get update
+    sudo apt-get install python3.6 python3.6-distutils python3.6-venv
 
-## Running from Source
+It is wise to update pip at this time.
 
-To run this project from source code, we use the `--editable` flag with `pip install` against the locally downloaded repository.
+    python3.6 -m pip install --upgrade pip
 
-    # run from the directory where setup.py lives
-    pip install --editable .
+### Hatch
 
-This will install this project into your site-packages.
-Using this feature, any changes you make in the source code will be reflected when testing the code!
+We use Hatch to manage our development environment (and build process).
+
+> What is Hatch? "Hatch is a modern, extensible Python project manager."
+
+You can easily [install Hatch](https://hatch.pypa.io/latest/install/) using pip.
+
+    pip install hatch
+
+## Getting Started
+
+Once you have [installed Hatch](#hatch), we can jump right into our development environment using the following command.
+
+    hatch --env dev shell
+
+At this point, running `pip freeze` should reveal that all dependencies, as well as the package within the "src/" directory, are installed for you!
+
+### Any Issues?
+
+A great place to start if there are issues with Getting Started, is to run `hatch env prune`. 
+This will remove all Hatch-managed and restart fresh.
+
+> ⚠ This will fail if any shells are using any of your hatch-managed venv(s).
+>
+> ℹ Either `deactivate` or `exit` any currently opened shells that are using your hatch-managed venv(s).
 
 ## Dependency Management
 
-We use `requirements.txt` to define all dependencies for development, while `setup.py` holds a *looser* list of package that are installed when the package is installed via pip.
-This follows [general Python practices, (discussed on python.org)](https://packaging.python.org/discussions/install-requires-vs-requirements/#install-requires)
+We use "pyproject.toml" to define all dependencies for development and production.
 
-### Development Dependencies: `requirements.txt`
+> ⚠ When [Hatch gains support for lock files](https://github.com/pypa/hatch/discussions/226#discussioncomment-2714692), we will update this process to include using a lock file for maximum (CICD) stability.
 
-`requirements.txt` holds all of the development dependencies for this project.
+### Production Dependencies
 
-If you make changes to dependencies, be sure to update requirements.txt.
-The following command will update requirements.txt (and will correctly omit 'editable' packages).
-
-    pip freeze | grep -v ^-e > requirements.txt
-
-### Production Dependencies: `setup.py`
-
-In `setup.py`, there is the **minimum** List of packages required for installation: `install_requires`.
+In `[project]`, there is the **minimum** list of packages required for installation: `dependencies`.
 This list should follow best practices, I.e.,
 
 1. do **NOT** pin specific versions, and 
 2. do **NOT** specify sub-dependencies.
 
-#### Testing Production Dependencies
+> TODO: decide whether to pin major version of dependencies...
+>
+> As an example, when building an application (e.g. CLI Tool).
+> Assuming dependencies follow [semantic versioning](https://semver.org), maybe we should pin the major version of dependencies.
 
-> The normal development workflow will install dependencies specified in `requirements.txt` -- here we omit that step so that we can test the setup.py 
+### Development Dependencies 
 
-Production dependencies outlined in `setup.py` **should be tested when they are created/updated**, to ensure the dependencies are sufficiant.
-Create a virtual environment specifically for this purpose:
-
-    python3 -m venv venv-setup.py
-    source venv-setup.py/bin/activate
-    pip install --editable .
-
-Ensure your package tools/tests work as expected using this `venv-setup.py`!
+Hatch provides features to manage Development dependencies as well!
+Within "hatch.toml" there is the `[envs.dev]` section.
 
 ## Automated Testing
 
-pytest is used to automatically testing this project.
+pytest is used to automatically test this project.
+All tests are contained in the "tests" directory.
 
-Simply run the `pytest` CLI tool from the local directory to run all of the tests!
+To run all the automated tests for this project, you can simply, "`run` the `test` script provided by our Hatch `dev` environment," i.e.: `hatch run dev:test`
 
-    $ pytest --doctest-modules
-    =========================== test session starts ============================
+> ℹ Review "hatch.toml" in this projet's root to learn what other scripts are available!
+>
+> ℹ Learn more by reading ["Hatch Environments Scripts" documentation](https://hatch.pypa.io/latest/environment/#scripts).
+
+    hatch run dev:test
+    ===================== test session starts =====================
     platform linux -- Python 3.x.y, pytest-6.x.y, py-1.x.y, pluggy-1.x.y
     cachedir: $PYTHON_PREFIX/.pytest_cache
     ... omitted for brevity...
-

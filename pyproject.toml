@@ -1,0 +1,60 @@
+# 
+# This package is managed using Hatch: a modern, extensible Python project manager.
+#
+# > Additional Hatch-config for this project is in "hatch.toml"
+# 
+# > See [Hatch Documentation](https://hatch.pypa.io/latest/).
+#
+
+#
+# Details about this package (analogous to setup.py)
+#
+[project]
+authors = [
+  {name = "University of Oregon", email = "TODO@uoregon.edu"},
+] 
+classifiers = [
+  # Provide classifiers selected from https://pypi.org/classifiers/
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.8",
+] 
+dependencies = [
+  # TODO: List of the set of packages -- delete if you only require the Python stdlib!
+  # E.g. you may have the following dependencies:
+  #      
+  # "humanize >=2",
+  # "netdot >=0.2",
+  # "requests >=2, <3",
+  # "uologging >=0.7.0",
+  # "dataclasses ~=0.8.0; python_version <'3.8'",
+] 
+description = "TODO" # A single line of text describing this package (no more than 200 characters).
+dynamic = ["version"] 
+keywords = [
+  # TODO: Provide ANY additional keywords that you want to!
+  "NTS",
+  "UO",
+] 
+license = "MIT" 
+name = "example-package"  # TODO: Update to match your package's published name (replace any '_' with '-')
+python = "3.6" 
+readme = "docs/user-guide.md" 
+
+#
+# CLI Tools
+# TODO: Fill-in, or delete if you have no CLI tools.
+#
+[project.scripts]
+hello = "example_package.hello_world:main" # Example: Places `hello` command in PATH: enables running `hello` as a command-line interface tool.
+
+#
+# (Meta) Build-system details, required by Hatch (hatch.toml).
+#
+[build-system]
+build-backend = "hatchling.build"
+requires = [
+  "hatchling>=0.21.0",
+]
