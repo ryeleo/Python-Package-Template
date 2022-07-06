@@ -28,6 +28,10 @@ jobs:
         with:
           python-version: "3.6"
 
+      - name: Install Hatch
+        run: |
+          python3.8 -m pip install hatch
+
       - name: Install Annotate Test Results Plugin
         run: pip install pytest-github-actions-annotate-failures
 
