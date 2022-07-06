@@ -27,20 +27,13 @@ You can easily [install Hatch](https://hatch.pypa.io/latest/install/) using pip.
 
     pip install hatch
 
-We advise running the following command once you've installed Hatch.
-This will ensure virtual environments exist within the Hatch project's directory.
-
-> This makes integrating with VSCode and other IDEs simpler.
-
-    hatch config set dirs.env.virtual ./venv
-
 ## Getting Started
 
 Once you have [installed Hatch](#hatch), we can jump right into our development environment using the following command.
 
     hatch --env dev shell
 
-At this point, running `pip freeze` should reveal that all dependencies are installed for you!
+At this point, running `pip freeze` should reveal that all dependencies, as well as the package within the "src/" directory, are installed for you!
 
 ### Any Issues?
 
