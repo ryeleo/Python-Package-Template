@@ -1,7 +1,11 @@
 We use Continuous Integration and Delivery/Deployment (CICD) for this project.
 
-> Before using CICD for your project, there are some one-time setup steps for establishing CICD for your project via our Jenkins server.
+This project has CICD established via our [Jenkins server](https://is-nts-jenkins.uoregon.edu).
+
+> TODO: Before using CICD for your project, there are some one-time setup steps for establishing CICD for your project via our Jenkins server.
 > Those setup steps are outlined at the end of this document.
+
+> ℹ We plan to transition to using GitHub Actions in the future to replace Jenkins.
 
 Simply complete the 'Deployment Checklist' to deploy your project to its Python Package Index.
 The checklist, which includes the 'Deployment Workflow', 
