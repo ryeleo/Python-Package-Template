@@ -31,10 +31,10 @@ dependencies = [
   # "uologging >=0.7.0",
   # "dataclasses ~=0.8.0; python_version <'3.8'",
 ] 
-description = "TODO" # TODO: Fill-in a single line of text, not more than 200 characters.
+description = "TODO" # A single line of text describing this package (no more than 200 characters).
 dynamic = ["version"] 
 keywords = [
-  # Provide ANY additional keywords that you want to!
+  # TODO: Provide ANY additional keywords that you want to!
   "NTS",
   "UO",
 ] 
