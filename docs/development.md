@@ -1,21 +1,22 @@
-This document discusses setting up local development for this project on your own personal Linux box. 
+This document discusses setting up local development for this project on your own personal Linux box.
 
+> We use Ubuntu 20.04 (ex. Windows Subsystem for Linux) as our development environment.
+>
+> We use VS Code as our editor.
+>
 > We use [Python Hatch](https://hatch.pypa.io/latest/) for this project.
 
 ## Prerequisites
 
-### Python 3.6
+### Python 3.8
 
-Today, UO is still using Python 3.6.
-So, install Python 3.6, along with distutils.
+Install python 3.8.
 
-    sudo add-apt-repository ppa:deadsnakes/ppa
-    sudo apt-get update
-    sudo apt-get install python3.6 python3.6-distutils python3.6-venv
+    sudo apt-get install python3.8 python3.8-venv
 
 It is wise to update pip at this time.
 
-    python3.6 -m pip install --upgrade pip
+    python3.8 -m pip install --upgrade pip
 
 ### Hatch
 
@@ -27,13 +28,25 @@ You can easily [install Hatch](https://hatch.pypa.io/latest/install/) using pip.
 
     pip install hatch
 
+We advise running the following command once you've installed Hatch.
+This will ensure virtual environments exist within the Hatch project's directory.
+
+> This makes integrating with VSCode and other IDEs simpler.
+
+    hatch config set dirs.env.virtual ./venv
+
 ## Getting Started
 
 Once you have [installed Hatch](#hatch), we can jump right into our development environment using the following command.
 
-    hatch --env dev shell
+    hatch shell
 
-At this point, running `pip freeze` should reveal that all dependencies, as well as the package within the "src/" directory, are installed for you!
+At this point, running `pip freeze` should reveal that all dependencies are installed for you!
+
+> In fact, you can grep for "-e " to ensure that this package is correctly installed in editable mode. 
+>```bash
+> pip freeze | grep "-e "
+>```
 
 ### Any Issues?
 
@@ -48,8 +61,6 @@ This will remove all Hatch-managed and restart fresh.
 
 We use "pyproject.toml" to define all dependencies for development and production.
 
-> ⚠ When [Hatch gains support for lock files](https://github.com/pypa/hatch/discussions/226#discussioncomment-2714692), we will update this process to include using a lock file for maximum (CICD) stability.
-
 ### Production Dependencies
 
 In `[project]`, there is the **minimum** list of packages required for installation: `dependencies`.
@@ -58,28 +69,24 @@ This list should follow best practices, I.e.,
 1. do **NOT** pin specific versions, and 
 2. do **NOT** specify sub-dependencies.
 
-> TODO: decide whether to pin major version of dependencies...
->
-> As an example, when building an application (e.g. CLI Tool).
-> Assuming dependencies follow [semantic versioning](https://semver.org), maybe we should pin the major version of dependencies.
-
 ### Development Dependencies 
 
 Hatch provides features to manage Development dependencies as well!
-Within "hatch.toml" there is the `[envs.dev]` section.
+Within "hatch.toml" there is the `[envs.default]` section
+
 
 ## Automated Testing
 
-pytest is used to automatically test this project.
+Pytest is used to automatically test this project.
 All tests are contained in the "tests" directory.
 
-To run all the automated tests for this project, you can simply, "`run` the `test` script provided by our Hatch `dev` environment," i.e.: `hatch run dev:test`
+To run all the automated tests for this project, you can simply, "`run` the `coveragee` script provided by our Hatch `default` environment," i.e.: `hatch run coveragee`
 
-> ℹ Review "hatch.toml" in this projet's root to learn what other scripts are available!
+> ℹ Review "hatch.toml" in this project's root to learn what other scripts are available!
 >
 > ℹ Learn more by reading ["Hatch Environments Scripts" documentation](https://hatch.pypa.io/latest/environment/#scripts).
 
-    hatch run dev:test
+    hatch run coveragee
     ===================== test session starts =====================
     platform linux -- Python 3.x.y, pytest-6.x.y, py-1.x.y, pluggy-1.x.y
     cachedir: $PYTHON_PREFIX/.pytest_cache
