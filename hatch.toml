@@ -48,7 +48,7 @@ dependencies = [
 python = "3.8"
 
 [envs.default.scripts]
-coveragee = "coverage run -m pytest --doctest-modules tests && coverage xml; coverage html;"
+coveragee = "coverage run -m pytest --doctest-modules tests && coverage html --include=src/*"
 test = "pytest --doctest-modules"
 
 #
